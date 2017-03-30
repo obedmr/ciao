@@ -180,6 +180,7 @@ func (s *ImageStore) UploadImage(tenant, ID string, body io.Reader) error {
 		err = s.rawDs.Write(ID, body)
 		if err != nil {
 			Logger.Errorf("Could not write image: %v", err)
+
 			img.State = Killed
 		}
 
